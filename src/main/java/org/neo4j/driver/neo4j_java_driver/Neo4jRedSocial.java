@@ -1,11 +1,13 @@
 package org.neo4j.driver.neo4j_java_driver;
 import org.neo4j.driver.*;
+import org.neo4j.driver.Record;
+
 import java.util.List;
 
 public class Neo4jRedSocial {
-    private static final String NEO4J_URI = "bolt://localhost:7687";
+    private static final String NEO4J_URI = "neo4j+s://2f7d5d3c.databases.neo4j.io";
     private static final String USER = "neo4j";
-    private static final String PASSWORD = "password";
+    private static final String PASSWORD = "rfsvGgaI6Wwj76OCyDp_Vy0zvhSDioGy5V_ypGlI8bg";
 
     public static void main(String[] args) {
         try (Driver driver = GraphDatabase.driver(NEO4J_URI, AuthTokens.basic(USER, PASSWORD));
@@ -32,6 +34,10 @@ public class Neo4jRedSocial {
 
             // Obtener publicaciones populares
             obtenerPublicacionesPopulares(session);
+
+        } catch (Exception e) {
+            System.err.println("Error al interactuar con Neo4j: " + e.getMessage());
+            e.printStackTrace();  // Imprime el stacktrace completo para diagnóstico.
         }
     }
 
